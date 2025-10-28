@@ -23,6 +23,31 @@ Instead of the complex process of manually editing the registry, you can instant
 
 <br>
 
+## 🔄 Changelog
+
+### v1.1.0 (2025-10-28)
+
+-   #### **Changes**
+    -   **Use of official cfg files**: Switched from custom-generated cfg files to official ones when processing Vegas Pro 20 ~ 23.
+    -   **Updated About dialog**: Added a 'Special Thanks' section.
+    -   **Improved localization**: Refined translations for more natural phrasing.
+
+<br>
+
+<details>
+<summary>📜 Previous Updates - Click to expand</summary>
+<br>
+<details>
+<summary>v1.0.0 (2025-09-24)</summary>
+  
+  -   **Misc**
+      -   Initial release of `Vegas Language Changer`.
+
+</details>
+</details>
+
+<br>
+
 ## 📋 Requirements
 - **Operating System**: **Windows XP SP3** or later
 - **Framework**: **.NET Framework 4.0** or later
@@ -133,30 +158,14 @@ The table below lists the officially supported languages for each version, all o
 
 <br>
 
-## 📄 Embedded `.cfg` File Creation Policy
-Some recent versions of VEGAS do not officially provide `.cfg` files for certain languages. The files embedded in this program were created for user convenience according to the following strict and consistent principles.
+## 👏 Special Thanks
 
-### **Standard Operating Procedure**
-1.  **Base Setting:** The English (`en_US`) configuration file from the **latest version** being targeted was used as the **`Base`**. This ensured that all items and the structure of the latest version were preserved.
-2.  **Reference Setting:** The target language configuration file from a **previous version** was used as the **`Reference`** to obtain unique links and information for that language.
-3.  **Selective Merge:** The `Base` file was overwritten with values from the `Reference` file, but with the following **key exceptions** strictly applied:
-    *   The **`phash` value was always kept from the latest `Base` file**.
-    *   New items not present in the `Reference` file (e.g., the `[GettingStarted]` section) were preserved as they were in the `Base` file.
+A huge thank you to the following people for their contributions that made this project more complete.
 
-### Language File Creation Details by Version
-| VEGAS Version | Target Language File | Base | Reference | Key Actions |
-| :--- | :--- | :--- | :--- | :--- |
-| **Pro 20** | `local_ja_JP.cfg` (Japanese) | v20 English (US) | v19 Japanese (JP) | Applied v19 Japanese links/info to v20 structure, kept v20 `phash`. |
-| | `local_zh_CN.cfg` (Chinese) | v20 English (US) | v19 Chinese (CN) | Applied v19 Chinese links/doc names to v20 structure, kept v20 `phash`. |
-| **Pro 21** | `local_ja_JP.cfg` (Japanese) | v21 English (US) | v19 Japanese (JP) | Applied v19 Japanese values to v21 structure, kept v21 `phash`. |
-| | `local_zh_CN.cfg` (Chinese) | v21 English (US) | v19 Chinese (CN) | Applied v19 Chinese values to v21 structure, kept v21 `phash`. |
-| **Pro 22** | `local_ja_JP.cfg` (Japanese) | v22 English (US) | v19 Japanese (JP) | Preserved new `GettingStarted` section from v22 while applying v19 Japanese values. |
-| | `local_ko_KR.cfg` (Korean) | v22 English (US) | **v21** Korean (KR) | Applied the **latest v21 Korean info** to v22 structure, kept v22 `phash`. |
-| | `local_zh_CN.cfg` (Chinese) | v22 English (US) | v19 Chinese (CN) | Applied v19 Chinese values to v22 structure, kept v22 `phash`. |
-| **Pro 23** | `local_ja_JP.cfg` (Japanese) | v23 English (US) | v19 Japanese (JP) | Preserved new `VEGASAV1_` items from v23 while applying v19 Japanese values. |
-| | `local_ko_KR.cfg` (Korean) | v23 English (US) | **v21** Korean (KR) | Applied the **latest v21 Korean info** to v23 structure, kept v23 `phash`. |
-| | `local_pt_BR.cfg` (Portuguese) | v23 English (US) | v19 Portuguese (BR) | Applied v19 Portuguese values to v23 structure, kept v23 `phash`. |
-| | `local_zh_CN.cfg` (Chinese) | v23 English (US) | v19 Chinese (CN) | Applied v19 Chinese values to v23 structure, kept v23 `phash`. |
+*   **[zzzzzz9125](https://github.com/zzzzzz9125)**
+    *   For providing crucial official language configuration (`.cfg`) files needed for the program.
+        *   **Vegas Pro 20:** `local_zh_CN.cfg`
+        *   **Vegas Pro 21 ~ 23:** All official `.cfg` files
 
 <br>
 
