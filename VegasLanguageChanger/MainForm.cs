@@ -1,4 +1,4 @@
-﻿// 네임스페이스 및 라이브러리 임포트
+// 네임스페이스 및 라이브러리 임포트
 // ==============================================================================
 // .NET 프레임워크 표준 라이브러리 (Standard Library)
 // ==============================================================================
@@ -785,7 +785,9 @@ namespace VegasLanguageChanger
                              GetText("about_label_version") + ": " + VegasData.AboutInfo["version"] + " (" + GetText("about_label_updated") + ": " + VegasData.AboutInfo["updated"] + ")\n\n" +
                              GetText("about_label_developer") + ": " + VegasData.AboutInfo["developer"] + "\n" +
                              GetText("about_label_website") + ": " + VegasData.AboutInfo["website"] + "\n\n" +
-                             GetText("about_label_license") + ": " + VegasData.AboutInfo["license"];
+                             GetText("about_label_license") + ": " + VegasData.AboutInfo["license"] + "\n\n" +
+                             GetText("about_label_special_thanks") + "\n" +
+                             GetText("about_special_thanks_content");
             MessageBox.Show(message, GetText("about_menu"), MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -940,7 +942,7 @@ namespace VegasLanguageChanger
             // --- 프로그램 정보 데이터 ---
             AboutInfo = new Dictionary<string, string>
             {
-                { "version", "1.0.0" }, { "updated", "2025-09-24" },
+                { "version", "1.1.0" }, { "updated", "2025-10-28" },
                 { "license", "GNU General Public License v3.0" }, { "developer", "(Github) IZH318" },
                 { "website", "https://github.com/IZH318" }
             };
@@ -985,9 +987,9 @@ namespace VegasLanguageChanger
                 { "title", "Vegas Sprachwechsler" }, { "info_text", "Wählen Sie die Vegas-Versionen auf Ihrem PC aus, um deren Sprache zu ändern." },
                 { "no_versions_found", "Keine installierten Vegas Pro oder Vegas Movie Studio Versionen gefunden." }, { "select_version", "Version auswählen" }, { "no_common_lang", "Keine gemeinsame Sprache" }, { "change_lang_button", "Sprache ändern" },
                 { "error_title", "Fehler" }, { "error_no_valid_lang", "Keine gültige Sprache ausgewählt." }, { "confirm_title", "Ausführung bestätigen" },
-                { "confirm_message", "Die Sprache für {num_versions} ausgewählte(n) Version(en) wird auf '{lang_name}' geändert.\n\nBackup, Kopieren von Sprachdateien und Cache-Löschung werden durchgeführt." },
+                { "confirm_message", "Die Sprache für {num_versions} ausgewählte(n) Version(en) wird auf '{lang_name}' geändert.\n\nSicherung, Kopieren von Sprachdateien und Cache-Löschung werden gemeinsam durchgeführt." },
                 { "backup_fail_title", "Sicherung fehlgeschlagen" }, { "backup_fail_message", "Die Registrierungssicherung ist fehlgeschlagen." }, { "task_complete_title", "Aufgabe abgeschlossen" },
-                { "task_complete_message", "Sicherungsdatei auf Ihrem Desktop gespeichert unter '{backup_filename}'." }, { "success", "Registrierungsänderung erfolgreich:" }, { "failure", "Registrierungsänderung fehlgeschlagen:" },
+                { "task_complete_message", "Sicherungsdatei wurde auf Ihrem Desktop unter '{backup_filename}' gespeichert." }, { "success", "Registrierungsänderung erfolgreich:" }, { "failure", "Registrierungsänderung fehlgeschlagen:" },
                 { "reg_path_not_found", "Registrierungspfad nicht gefunden." }, { "program_language", "Programmsprache" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 unterstützt Koreanisch ab Build 384. Fortfahren?" },
                 { "german", "Deutsch" }, { "english", "Englisch" }, { "spanish", "Spanisch" }, { "french", "Französisch" }, { "japanese", "Japanisch" }, { "korean", "Koreanisch" }, { "polish", "Polnisch" }, { "portuguese", "Portugiesisch" }, { "russian", "Russisch" }, { "chinese_simplified", "Chinesisch (vereinfacht)" },
                 { "cache_clear_results", "Ergebnisse der Plugin-Cache-Löschung:" }, { "cache_cleared", "{version_name}: Cache-Dateien gelöscht" }, { "cache_clear_failed", "{version_name}: Cache-Löschung fehlgeschlagen ({error})" },
@@ -995,6 +997,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Ergebnisse des Kopierens der Sprachdatei (.cfg):" }, { "cfg_copied", "{version_name}: '{filename}' erfolgreich kopiert" }, { "cfg_copy_failed_no_source", "{version_name}: Quelldatei nicht gefunden" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Installationspfad nicht gefunden" }, { "cfg_copy_failed_permission", "{version_name}: Kopierberechtigung verweigert ({error})" }, { "cfg_copy_unsupported", "{version_name}: Nicht unterstützte Version" },
                 { "about_menu", "Über" }, { "about_label_version", "Version" }, { "about_label_updated", "Letzte Aktualisierung" }, { "about_label_developer", "Entwickler" }, { "about_label_website", "Webseite" }, { "about_label_license", "Lizenz" },
+                { "about_label_special_thanks", "===== Besonderer Dank =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Bereitstellung der Dateien für Vegas Pro 20 (offizielle local_zh_CN.cfg)\n     und Vegas Pro 21 ~ 23 (alle offiziellen cfg)" }
             };
             Texts.Add("de", de);
 
@@ -1003,9 +1007,9 @@ namespace VegasLanguageChanger
                 { "title", "Vegas Language Changer" }, { "info_text", "Select the Vegas versions on your PC to change their language." },
                 { "no_versions_found", "No installed Vegas Pro or Vegas Movie Studio versions found." }, { "select_version", "Select a Version" }, { "no_common_lang", "No Common Language" }, { "change_lang_button", "Change Language" },
                 { "error_title", "Error" }, { "error_no_valid_lang", "No valid language selected." }, { "confirm_title", "Execution Confirmation" },
-                { "confirm_message", "The language for {num_versions} selected version(s) will be changed to '{lang_name}'.\n\nSettings backup, language file copy, and cache clearing will be performed." },
+                { "confirm_message", "The language for {num_versions} selected version(s) will be changed to '{lang_name}'.\n\nSettings backup, language file copy, and cache clearing will be performed together." },
                 { "backup_fail_title", "Backup Failed" }, { "backup_fail_message", "Registry backup failed." }, { "task_complete_title", "Task Completed" },
-                { "task_complete_message", "Backup file saved to your desktop at '{backup_filename}'." }, { "success", "Registry Change Success:" }, { "failure", "Registry Change Failure:" },
+                { "task_complete_message", "Backup file has been saved to your desktop at '{backup_filename}'." }, { "success", "Registry Change Success:" }, { "failure", "Registry Change Failure:" },
                 { "reg_path_not_found", "Registry path not found." }, { "program_language", "Program Language" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 supports Korean from build 384 or later. Continue?" },
                 { "german", "German" }, { "english", "English" }, { "spanish", "Spanish" }, { "french", "French" }, { "japanese", "Japanese" }, { "korean", "Korean" }, { "polish", "Polish" }, { "portuguese", "Portuguese" }, { "russian", "Russian" }, { "chinese_simplified", "Chinese Simplified" },
                 { "cache_clear_results", "Plugin Cache Deletion Results:" }, { "cache_cleared", "{version_name}: Cache files deleted" }, { "cache_clear_failed", "{version_name}: Cache deletion failed ({error})" },
@@ -1013,6 +1017,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Language File (.cfg) Copy Results:" }, { "cfg_copied", "{version_name}: Copied '{filename}' successfully" }, { "cfg_copy_failed_no_source", "{version_name}: Source file not found" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Installation path not found" }, { "cfg_copy_failed_permission", "{version_name}: Copy permission denied ({error})" }, { "cfg_copy_unsupported", "{version_name}: Unsupported version" },
                 { "about_menu", "About" }, { "about_label_version", "Version" }, { "about_label_updated", "Last updated" }, { "about_label_developer", "Developer" }, { "about_label_website", "Website" }, { "about_label_license", "License" },
+                { "about_label_special_thanks", "===== Special Thanks =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Provided Vegas Pro 20 (official local_zh_CN.cfg)\n     and Vegas Pro 21 ~ 23 (all official cfg) files" }
             };
             Texts.Add("en", en);
 
@@ -1021,9 +1027,9 @@ namespace VegasLanguageChanger
                 { "title", "Cambiador de Idioma de Vegas" }, { "info_text", "Seleccione las versiones de Vegas en su PC para cambiar su idioma." },
                 { "no_versions_found", "No se encontraron versiones de Vegas Pro o Vegas Movie Studio instaladas." }, { "select_version", "Seleccionar una versión" }, { "no_common_lang", "Ningún idioma común" }, { "change_lang_button", "Cambiar idioma" },
                 { "error_title", "Error" }, { "error_no_valid_lang", "No se ha seleccionado un idioma válido." }, { "confirm_title", "Confirmación de ejecución" },
-                { "confirm_message", "El idioma para {num_versions} versión(es) seleccionada(s) se cambiará a '{lang_name}'.\n\nSe realizará una copia de seguridad de la configuración, la copia de archivos de idioma y la limpieza de la caché." },
+                { "confirm_message", "El idioma para {num_versions} versión(es) seleccionada(s) se cambiará a '{lang_name}'.\n\nLa copia de seguridad, la copia de archivos de idioma y la limpieza de la caché se realizarán conjuntamente." },
                 { "backup_fail_title", "Copia de seguridad fallida" }, { "backup_fail_message", "La copia de seguridad del registro falló." }, { "task_complete_title", "Tarea completada" },
-                { "task_complete_message", "Archivo de copia de seguridad guardado en su escritorio en '{backup_filename}'." }, { "success", "Éxito al cambiar el registro:" }, { "failure", "Fallo al cambiar el registro:" },
+                { "task_complete_message", "El archivo de copia de seguridad se ha guardado en su escritorio en '{backup_filename}'." }, { "success", "Éxito al cambiar el registro:" }, { "failure", "Fallo al cambiar el registro:" },
                 { "reg_path_not_found", "Ruta del registro no encontrada." }, { "program_language", "Idioma del programa" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 es compatible con el coreano a partir de la compilación 384. ¿Desea continuar?" },
                 { "german", "Alemán" }, { "english", "Inglés" }, { "spanish", "Español" }, { "french", "Francés" }, { "japanese", "Japonés" }, { "korean", "Coreano" }, { "polish", "Polaco" }, { "portuguese", "Portugués" }, { "russian", "Ruso" }, { "chinese_simplified", "Chino Simplificado" },
                 { "cache_clear_results", "Resultados de eliminación de caché de complementos:" }, { "cache_cleared", "{version_name}: Archivos de caché eliminados" }, { "cache_clear_failed", "{version_name}: Fallo al eliminar caché ({error})" },
@@ -1031,6 +1037,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Resultados de la copia del archivo de idioma (.cfg):" }, { "cfg_copied", "{version_name}: '{filename}' copiado correctamente" }, { "cfg_copy_failed_no_source", "{version_name}: Archivo de origen no encontrado" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Ruta de instalación no encontrada" }, { "cfg_copy_failed_permission", "{version_name}: Permiso de copia denegado ({error})" }, { "cfg_copy_unsupported", "{version_name}: Versión no compatible" },
                 { "about_menu", "Acerca de" }, { "about_label_version", "Versión" }, { "about_label_updated", "Última actualización" }, { "about_label_developer", "Desarrollador" }, { "about_label_website", "Sitio web" }, { "about_label_license", "Licencia" },
+                { "about_label_special_thanks", "===== Agradecimientos Especiales =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Proporcionó archivos para Vegas Pro 20 (local_zh_CN.cfg oficial)\n     y Vegas Pro 21 ~ 23 (todos los cfg oficiales)" }
             };
             Texts.Add("es", es);
 
@@ -1039,9 +1047,9 @@ namespace VegasLanguageChanger
                 { "title", "Changeur de Langue Vegas" }, { "info_text", "Sélectionnez les versions de Vegas sur votre PC pour changer leur langue." },
                 { "no_versions_found", "Aucune version de Vegas Pro ou Vegas Movie Studio installée trouvée." }, { "select_version", "Sélectionner une version" }, { "no_common_lang", "Aucune langue commune" }, { "change_lang_button", "Changer la langue" },
                 { "error_title", "Erreur" }, { "error_no_valid_lang", "Aucune langue valide sélectionnée." }, { "confirm_title", "Confirmation d'exécution" },
-                { "confirm_message", "La langue pour {num_versions} version(s) sélectionnée(s) sera changée en '{lang_name}'.\n\nLa sauvegarde des paramètres, la copie des fichiers de langue et le nettoyage du cache seront effectués." },
+                { "confirm_message", "La langue pour {num_versions} version(s) sélectionnée(s) sera changée en '{lang_name}'.\n\nLa sauvegarde, la copie des fichiers de langue et le nettoyage du cache seront effectués ensemble." },
                 { "backup_fail_title", "Sauvegarde échouée" }, { "backup_fail_message", "La sauvegarde du registre a échoué." }, { "task_complete_title", "Tâche terminée" },
-                { "task_complete_message", "Fichier de sauvegarde enregistré sur votre bureau sous '{backup_filename}'." }, { "success", "Succès de la modification du registre :" }, { "failure", "Échec de la modification du registre :" },
+                { "task_complete_message", "Le fichier de sauvegarde a été enregistré sur votre bureau sous '{backup_filename}'." }, { "success", "Succès de la modification du registre :" }, { "failure", "Échec de la modification du registre :" },
                 { "reg_path_not_found", "Chemin du registre introuvable." }, { "program_language", "Langue du programme" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 prend en charge le coréen à partir de la version 384. Continuer ?" },
                 { "german", "Allemand" }, { "english", "Anglais" }, { "spanish", "Espagnol" }, { "french", "Français" }, { "japanese", "Japonais" }, { "korean", "Coréen" }, { "polish", "Polonais" }, { "portuguese", "Portugais" }, { "russian", "Russe" }, { "chinese_simplified", "Chinois simplifié" },
                 { "cache_clear_results", "Résultats de la suppression du cache des plugins :" }, { "cache_cleared", "{version_name} : Fichiers de cache supprimés" }, { "cache_clear_failed", "{version_name} : Échec de la suppression du cache ({error})" },
@@ -1049,6 +1057,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Résultats de la copie du fichier de langue (.cfg) :" }, { "cfg_copied", "{version_name} : '{filename}' copié avec succès" }, { "cfg_copy_failed_no_source", "{version_name} : Fichier source introuvable" },
                 { "cfg_copy_failed_no_dest", "{version_name} : Chemin d'installation introuvable" }, { "cfg_copy_failed_permission", "{version_name} : Autorisation de copie refusée ({error})" }, { "cfg_copy_unsupported", "{version_name} : Version non supportée" },
                 { "about_menu", "À propos" }, { "about_label_version", "Version" }, { "about_label_updated", "Dernière mise à jour" }, { "about_label_developer", "Développeur" }, { "about_label_website", "Site web" }, { "about_label_license", "Licence" },
+                { "about_label_special_thanks", "===== Remerciements Particuliers =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     A fourni les fichiers pour Vegas Pro 20 (local_zh_CN.cfg officiel)\n     et Vegas Pro 21 ~ 23 (tous les cfg officiels)" }
             };
             Texts.Add("fr", fr);
 
@@ -1057,16 +1067,18 @@ namespace VegasLanguageChanger
                 { "title", "Vegas 言語変更ツール" }, { "info_text", "PCにインストールされているVegasのバージョンを選択して言語を変更します。" },
                 { "no_versions_found", "インストールされているVegas ProまたはVegas Movie Studioのバージョンが見つかりません。" }, { "select_version", "バージョンを選択" }, { "no_common_lang", "共通言語なし" }, { "change_lang_button", "言語を変更" },
                 { "error_title", "エラー" }, { "error_no_valid_lang", "有効な言語が選択されていません。" }, { "confirm_title", "実行確認" },
-                { "confirm_message", "{num_versions}つの選択されたバージョンの言語を「{lang_name}」に変更します。\n\n設定のバックアップ、言語ファイルのコピー、キャッシュのクリアが実行されます。" },
+                { "confirm_message", "選択された{num_versions}つのバージョンの言語を「{lang_name}」に変更します。\n\n設定のバックアップ、言語ファイルのコピー、キャッシュのクリアが同時に実行されます。" },
                 { "backup_fail_title", "バックアップ失敗" }, { "backup_fail_message", "レジストリのバックアップに失敗しました。" }, { "task_complete_title", "タスク完了" },
                 { "task_complete_message", "バックアップファイルはデスクトップの「{backup_filename}」に保存されました。" }, { "success", "レジストリ変更成功:" }, { "failure", "レジストリ変更失敗:" },
                 { "reg_path_not_found", "レジストリパスが見つかりません。" }, { "program_language", "プログラム言語" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0はビルド384以降で韓国語をサポートしています。続行しますか？" },
                 { "german", "ドイツ語" }, { "english", "英語" }, { "spanish", "スペイン語" }, { "french", "フランス語" }, { "japanese", "日本語" }, { "korean", "韓国語" }, { "polish", "ポーランド語" }, { "portuguese", "ポルトガル語" }, { "russian", "ロシア語" }, { "chinese_simplified", "中国語 (簡体字)" },
                 { "cache_clear_results", "プラグインキャッシュの削除結果：" }, { "cache_cleared", "{version_name}：キャッシュファイルを削除しました" }, { "cache_clear_failed", "{version_name}：キャッシュの削除に失敗しました ({error})" },
                 { "available_versions", "利用可能なバージョン" }, { "versions_to_change", "変更するバージョン" }, { "error_no_versions_selected", "変更するバージョンを少なくとも1つ選択してください。" },
-                { "cfg_copy_results", "言語ファイル（.cfg）のコピー結果：" }, { "cfg_copied", "{version_name}：「{filename}」をコピーしました" }, { "cfg_copy_failed_no_source", "{version_name}：ソースファイルが見つかりません" },
+                { "cfg_copy_results", "言語ファイル（.cfg）のコピー結果：" }, { "cfg_copied", "{version_name}：「{filename}」を正常にコピーしました" }, { "cfg_copy_failed_no_source", "{version_name}：ソースファイルが見つかりません" },
                 { "cfg_copy_failed_no_dest", "{version_name}：インストールパスが見つかりません" }, { "cfg_copy_failed_permission", "{version_name}：コピー権限がありません ({error})" }, { "cfg_copy_unsupported", "{version_name}：サポートされていないバージョン" },
                 { "about_menu", "情報" }, { "about_label_version", "バージョン" }, { "about_label_updated", "最終更新日" }, { "about_label_developer", "開発者" }, { "about_label_website", "ウェブサイト" }, { "about_label_license", "ライセンス" },
+                { "about_label_special_thanks", "===== 協力してくださった方々 =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125様:\n     Vegas Pro 20 (公式 local_zh_CN.cfg)、\n     Vegas Pro 21 ~ 23 (全ての公式 cfg) ファイルを提供" }
             };
             Texts.Add("ja", ja);
 
@@ -1085,6 +1097,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "언어 파일(.cfg) 복사 결과:" }, { "cfg_copied", "{version_name}: '{filename}' 복사 성공" }, { "cfg_copy_failed_no_source", "{version_name}: 원본 파일을 찾을 수 없음" },
                 { "cfg_copy_failed_no_dest", "{version_name}: 설치 경로를 찾을 수 없음" }, { "cfg_copy_failed_permission", "{version_name}: 복사 권한 없음 ({error})" }, { "cfg_copy_unsupported", "{version_name}: 지원하지 않는 버전" },
                 { "about_menu", "정보" }, { "about_label_version", "버전" }, { "about_label_updated", "최종 업데이트" }, { "about_label_developer", "개발자" }, { "about_label_website", "웹사이트" }, { "about_label_license", "라이선스" },
+                { "about_label_special_thanks", "===== 도움을 주신 분 =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Vegas Pro 20 (공식 local_zh_CN.cfg),\n     Vegas Pro 21 ~ 23 (모든 공식 cfg) 파일 제공" }
             };
             Texts.Add("ko", ko);
 
@@ -1093,9 +1107,9 @@ namespace VegasLanguageChanger
                 { "title", "Zmieniacz Języka Vegas" }, { "info_text", "Wybierz wersje Vegas na swoim komputerze, aby zmienić ich język." },
                 { "no_versions_found", "Nie znaleziono zainstalowanych wersji Vegas Pro lub Vegas Movie Studio." }, { "select_version", "Wybierz wersję" }, { "no_common_lang", "Brak wspólnego języka" }, { "change_lang_button", "Zmień język" },
                 { "error_title", "Błąd" }, { "error_no_valid_lang", "Nie wybrano prawidłowego języka." }, { "confirm_title", "Potwierdzenie wykonania" },
-                { "confirm_message", "Język dla {num_versions} wybranej(ych) wersji zostanie zmieniony na '{lang_name}'.\n\nZostanie wykonana kopia zapasowa ustawień, kopiowanie plików językowych i czyszczenie pamięci podręcznej." },
+                { "confirm_message", "Język dla {num_versions} wybranej(ych) wersji zostanie zmieniony na '{lang_name}'.\n\nKopia zapasowa, kopiowanie plików językowych i czyszczenie pamięci podręcznej zostaną wykonane jednocześnie." },
                 { "backup_fail_title", "Niepowodzenie kopii zapasowej" }, { "backup_fail_message", "Kopia zapasowa rejestru nie powiodła się." }, { "task_complete_title", "Zadanie zakończone" },
-                { "task_complete_message", "Plik kopii zapasowej zapisano na pulpicie jako '{backup_filename}'." }, { "success", "Sukces zmiany rejestru:" }, { "failure", "Niepowodzenie zmiany rejestru:" },
+                { "task_complete_message", "Plik kopii zapasowej został zapisany na pulpicie jako '{backup_filename}'." }, { "success", "Sukces zmiany rejestru:" }, { "failure", "Niepowodzenie zmiany rejestru:" },
                 { "reg_path_not_found", "Nie znaleziono ścieżki rejestru." }, { "program_language", "Język programu" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 obsługuje język koreański od kompilacji 384. Kontynuować?" },
                 { "german", "Niemiecki" }, { "english", "Angielski" }, { "spanish", "Hiszpański" }, { "french", "Francuski" }, { "japanese", "Japoński" }, { "korean", "Koreański" }, { "polish", "Polski" }, { "portuguese", "Portugalski" }, { "russian", "Rosyjski" }, { "chinese_simplified", "Chiński uproszczony" },
                 { "cache_clear_results", "Wyniki usuwania pamięci podręcznej wtyczek:" }, { "cache_cleared", "{version_name}: Pliki pamięci podręcznej usunięte" }, { "cache_clear_failed", "{version_name}: Nie udało się usunąć pamięci podręcznej ({error})" },
@@ -1103,6 +1117,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Wyniki kopiowania pliku językowego (.cfg):" }, { "cfg_copied", "{version_name}: Pomyślnie skopiowano '{filename}'" }, { "cfg_copy_failed_no_source", "{version_name}: Nie znaleziono pliku źródłowego" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Nie znaleziono ścieżki instalacji" }, { "cfg_copy_failed_permission", "{version_name}: Odmowa uprawnień do kopiowania ({error})" }, { "cfg_copy_unsupported", "{version_name}: Nieobsługiwana wersja" },
                 { "about_menu", "O programie" }, { "about_label_version", "Wersja" }, { "about_label_updated", "Ostatnia aktualizacja" }, { "about_label_developer", "Deweloper" }, { "about_label_website", "Strona internetowa" }, { "about_label_license", "Licencja" },
+                { "about_label_special_thanks", "===== Specjalne Podziękowania =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Dostarczył pliki dla Vegas Pro 20 (oficjalny local_zh_CN.cfg)\n     oraz Vegas Pro 21 ~ 23 (wszystkie oficjalne cfg)" }
             };
             Texts.Add("pl", pl);
 
@@ -1111,9 +1127,9 @@ namespace VegasLanguageChanger
                 { "title", "Vegas Trocador de Idioma" }, { "info_text", "Selecione as versões do Vegas no seu PC para alterar o idioma." },
                 { "no_versions_found", "Nenhuma versão do Vegas Pro ou Vegas Movie Studio instalada encontrada." }, { "select_version", "Selecione uma versão" }, { "no_common_lang", "Nenhum idioma comum" }, { "change_lang_button", "Alterar idioma" },
                 { "error_title", "Erro" }, { "error_no_valid_lang", "Nenhum idioma válido selecionado." }, { "confirm_title", "Confirmação de Execução" },
-                { "confirm_message", "O idioma para {num_versions} versão(ões) selecionada(s) será alterado para '{lang_name}'.\n\nSerá feito o backup das configurações, a cópia dos arquivos de idioma e a limpeza do cache." },
+                { "confirm_message", "O idioma para {num_versions} versão(ões) selecionada(s) será alterado para '{lang_name}'.\n\nO backup, a cópia de arquivos de idioma e a limpeza de cache serão realizados em conjunto." },
                 { "backup_fail_title", "Falha no backup" }, { "backup_fail_message", "O backup do registro falhou." }, { "task_complete_title", "Tarefa Concluída" },
-                { "task_complete_message", "Arquivo de backup salvo na sua área de trabalho em '{backup_filename}'." }, { "success", "Sucesso na alteração do registro:" }, { "failure", "Falha na alteração do registro:" },
+                { "task_complete_message", "O arquivo de backup foi salvo na sua área de trabalho em '{backup_filename}'." }, { "success", "Sucesso na alteração do registro:" }, { "failure", "Falha na alteração do registro:" },
                 { "reg_path_not_found", "Caminho do registro não encontrado." }, { "program_language", "Idioma do Programa" }, { "vegas_pro_15_korean_warning", "O Vegas Pro 15.0 suporta coreano a partir da compilação 384. Continuar?" },
                 { "german", "Alemão" }, { "english", "Inglês" }, { "spanish", "Espanhol" }, { "french", "Francês" }, { "japanese", "Japonês" }, { "korean", "Coreano" }, { "polish", "Polonês" }, { "portuguese", "Português" }, { "russian", "Russo" }, { "chinese_simplified", "Chinês Simplificado" },
                 { "cache_clear_results", "Resultados da exclusão de cache de plugins:" }, { "cache_cleared", "{version_name}: Arquivos de cache excluídos" }, { "cache_clear_failed", "{version_name}: Falha na exclusão de cache ({error})" },
@@ -1121,6 +1137,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Resultados da cópia do arquivo de idioma (.cfg):" }, { "cfg_copied", "{version_name}: '{filename}' copiado com sucesso" }, { "cfg_copy_failed_no_source", "{version_name}: Arquivo de origen não encontrado" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Caminho de instalação não encontrado" }, { "cfg_copy_failed_permission", "{version_name}: Permissão de cópia negada ({error})" }, { "cfg_copy_unsupported", "{version_name}: Versão não suportada" },
                 { "about_menu", "Sobre" }, { "about_label_version", "Versão" }, { "about_label_updated", "Última atualização" }, { "about_label_developer", "Desenvolvedor" }, { "about_label_website", "Website" }, { "about_label_license", "Licença" },
+                { "about_label_special_thanks", "===== Agradecimentos Especiais =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Forneceu os arquivos do Vegas Pro 20 (local_zh_CN.cfg oficial)\n     e do Vegas Pro 21 ~ 23 (todos os cfg oficiais)" }
             };
             Texts.Add("pt", pt);
 
@@ -1129,7 +1147,7 @@ namespace VegasLanguageChanger
                 { "title", "Смена языка Vegas" }, { "info_text", "Выберите версии Vegas на вашем ПК, чтобы изменить их язык." },
                 { "no_versions_found", "Установленные версии Vegas Pro или Vegas Movie Studio не найдены." }, { "select_version", "Выберите версию" }, { "no_common_lang", "Нет общего языка" }, { "change_lang_button", "Изменить язык" },
                 { "error_title", "Ошибка" }, { "error_no_valid_lang", "Не выбран действительный язык." }, { "confirm_title", "Подтверждение выполнения" },
-                { "confirm_message", "Язык для {num_versions} выбранной(ых) версии(й) будет изменен на «{lang_name}».\n\nБудет выполнено резервное копирование настроек, копирование языковых файлов и очистка кэша." },
+                { "confirm_message", "Язык для {num_versions} выбранной(ых) версии(й) будет изменен на «{lang_name}».\n\nРезервное копирование, копирование языковых файлов и очистка кэша будут выполнены вместе." },
                 { "backup_fail_title", "Сбой резервного копирования" }, { "backup_fail_message", "Резервное копирование реестра не удалось." }, { "task_complete_title", "Задача завершена" },
                 { "task_complete_message", "Файл резервной копии сохранен на рабочем столе как «{backup_filename}»." }, { "success", "Реестр успешно изменен:" }, { "failure", "Ошибка изменения реестра:" },
                 { "reg_path_not_found", "Путь реестра не найден." }, { "program_language", "Язык программы" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 поддерживает корейский язык начиная со сборки 384. Продолжить?" },
@@ -1139,6 +1157,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "Результаты копирования языкового файла (.cfg):" }, { "cfg_copied", "{version_name}: Файл «{filename}» успешно скопирован" }, { "cfg_copy_failed_no_source", "{version_name}: Исходный файл не найден" },
                 { "cfg_copy_failed_no_dest", "{version_name}: Путь установки не найден" }, { "cfg_copy_failed_permission", "{version_name}: В копировании отказано ({error})" }, { "cfg_copy_unsupported", "{version_name}: Неподдерживаемая версия" },
                 { "about_menu", "О программе" }, { "about_label_version", "Версия" }, { "about_label_updated", "Последнее обновление" }, { "about_label_developer", "Разработчик" }, { "about_label_website", "Веб-сайт" }, { "about_label_license", "Лицензия" },
+                { "about_label_special_thanks", "===== Особая благодарность =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     Предоставил файлы для Vegas Pro 20 (официальный local_zh_CN.cfg)\n     и Vegas Pro 21 ~ 23 (все официальные cfg)" }
             };
             Texts.Add("ru", ru);
 
@@ -1147,7 +1167,7 @@ namespace VegasLanguageChanger
                 { "title", "Vegas 语言切换器" }, { "info_text", "在您的电脑上选择 Vegas 版本以更改其语言。" },
                 { "no_versions_found", "未找到已安装的 Vegas Pro 或 Vegas Movie Studio 版本。" }, { "select_version", "选择版本" }, { "no_common_lang", "无通用语言" }, { "change_lang_button", "更改语言" },
                 { "error_title", "错误" }, { "error_no_valid_lang", "未选择有效的语言。" }, { "confirm_title", "执行确认" },
-                { "confirm_message", "选定的 {num_versions} 个版本的语言将更改为 '{lang_name}'。\n\n将执行设置备份、语言文件复制和缓存清理。" },
+                { "confirm_message", "选定的 {num_versions} 个版本的语言将更改为 '{lang_name}'。\n\n设置备份、语言文件复制和缓存清理将一并执行。" },
                 { "backup_fail_title", "备份失败" }, { "backup_fail_message", "注册表备份失败。" }, { "task_complete_title", "任务完成" },
                 { "task_complete_message", "备份文件已保存到您的桌面，文件名为 '{backup_filename}'。" }, { "success", "注册表更改成功：" }, { "failure", "注册表更改失败：" },
                 { "reg_path_not_found", "未找到注册表路径。" }, { "program_language", "程序语言" }, { "vegas_pro_15_korean_warning", "Vegas Pro 15.0 从版本号 384 开始支持韩语。要继续吗？" },
@@ -1157,6 +1177,8 @@ namespace VegasLanguageChanger
                 { "cfg_copy_results", "语言文件 (.cfg) 复制结果：" }, { "cfg_copied", "{version_name}：成功复制 '{filename}'" }, { "cfg_copy_failed_no_source", "{version_name}：未找到源文件" },
                 { "cfg_copy_failed_no_dest", "{version_name}：未找到安装路径" }, { "cfg_copy_failed_permission", "{version_name}：复制权限被拒绝 ({error})" }, { "cfg_copy_unsupported", "{version_name}：不支持的版本" },
                 { "about_menu", "关于" }, { "about_label_version", "版本" }, { "about_label_updated", "最后更新" }, { "about_label_developer", "开发者" }, { "about_label_website", "网站" }, { "about_label_license", "许可证" },
+                { "about_label_special_thanks", "===== 特别感谢 =====" },
+                { "about_special_thanks_content", "(Github) zzzzzz9125:\n     提供了 Vegas Pro 20 (官方 local_zh_CN.cfg) 文件\n     以及 Vegas Pro 21 ~ 23 (所有官方 cfg) 文件" }
             };
             Texts.Add("zh", zh);
         }
