@@ -26,6 +26,31 @@ VEGAS Pro 및 VEGAS Movie Studio의 UI 언어를 손쉽게 변경할 수 있는 
 
 <br>
 
+## 🔄 업데이트 내역
+
+### v1.1.0 (2025-10-28)
+
+-   #### **업데이트 내역**
+    -   **공식 cfg 파일 사용**: Vegas Pro 20 ~ 23 버전을 처리할 때 임의로 생성 된 cfg 파일이 아닌 공식적으로 배포하는 파일 사용
+    -   **정보 메시지 박스 수정**: `===== 도움을 주신 분 =====` 추가
+    -   **다국어 본문 수정**: 조금 더 자연스러운 표현으로 수정
+
+<br>
+
+<details>
+<summary>📜 이전 업데이트 내역 - 클릭하여 열기</summary>
+<br>
+<details>
+<summary>v1.0.0 (2025-09-24)</summary>
+  
+  -   **기타**
+      -   `Vegas Language Changer` 게시
+
+</details>
+</details>
+
+<br>
+
 ## 📋 요구 사항 (Requirements)
 - **운영 체제**: **Windows XP SP3** 이상
 - **프레임워크**: **.NET Framework 4.0** 이상
@@ -138,30 +163,14 @@ VEGAS Pro 14.0 이상 버전부터는 `ULangID` 레지스트리 값뿐만 아니
 
 <br>
 
-## 📄 내장 `.cfg` 파일 생성 정책
-일부 최신 VEGAS 버전은 특정 언어의 `.cfg` 파일을 공식적으로 제공하지 않습니다. 이 프로그램에 내장된 파일들은 사용자의 편의를 위해 다음과 같은 엄격하고 일관된 원칙에 따라 제작되었습니다.
+## 👏 도움을 주신 분들 (Special Thanks)
 
-### **공통 작업 원칙 (Standard Operating Procedure)**
-1.  **기반(Base) 설정:** 생성하려는 **최신 버전의 영어(`en_US`) 설정 파일**을 **`뼈대(Base)`** 로 사용했습니다. 이를 통해 최신 버전의 모든 항목과 구조를 그대로 가져올 수 있었습니다.
-2.  **참조(Reference) 설정:** **과거 버전의 대상 언어 설정 파일**을 **`참조(Reference)`** 파일로 사용하여, 해당 언어에 맞는 고유한 링크나 정보를 가져왔습니다.
-3.  **선별적 병합(Selective Merge):** `뼈대`를 기반으로 `참조` 파일의 값을 덮어쓰되, 다음과 같은 **핵심 예외 규칙**을 엄격하게 적용했습니다.
-    *   **`phash` 값은 반드시 `뼈대(Base)` 파일의 최신 버전 값을 유지**했습니다.
-    *   `참조(Reference)` 파일에 없는 새로운 항목(예: `[GettingStarted]` 섹션)은 `뼈대(Base)`의 값을 그대로 보존했습니다.
+이 프로젝트가 더욱 완벽해질 수 있도록 도움을 주신 아래 분들께 진심으로 감사드립니다.
 
-### 각 버전별 언어 파일 생성 내역
-| VEGAS 버전 | 대상 언어 파일 | 뼈대 (Base) | 참조 (Reference) | 주요 작업 내용 |
-| :--- | :--- | :--- | :--- | :--- |
-| **Pro 20** | `local_ja_JP.cfg` (일본어) | v20 English (US) | v19 Japanese (JP) | v20 구조에 v19 일본어 링크/정보 적용 및 v20 `phash` 유지 |
-| | `local_zh_CN.cfg` (중국어) | v20 English (US) | v19 Chinese (CN) | v20 구조에 v19 중국어 링크/문서명 적용 및 v20 `phash` 유지 |
-| **Pro 21** | `local_ja_JP.cfg` (일본어) | v21 English (US) | v19 Japanese (JP) | v21 구조에 v19 일본어 값 적용 및 v21 `phash` 유지 |
-| | `local_zh_CN.cfg` (중국어) | v21 English (US) | v19 Chinese (CN) | v21 구조에 v19 중국어 값 적용 및 v21 `phash` 유지 |
-| **Pro 22** | `local_ja_JP.cfg` (일본어) | v22 English (US) | v19 Japanese (JP) | v22의 신규 `GettingStarted` 섹션 보존하며 v19 일본어 값 적용 |
-| | `local_ko_KR.cfg` (한국어) | v22 English (US) | **v21** Korean (KR) | v22 구조에 **최신 v21 한국어 정보**를 반영하고 v22 `phash` 유지 |
-| | `local_zh_CN.cfg` (중국어) | v22 English (US) | v19 Chinese (CN) | v22 구조에 v19 중국어 값 적용 및 v22 `phash` 유지 |
-| **Pro 23** | `local_ja_JP.cfg` (일본어) | v23 English (US) | v19 Japanese (JP) | v23의 신규 `VEGASAV1_` 항목 보존하며 v19 일본어 값 적용 |
-| | `local_ko_KR.cfg` (한국어) | v23 English (US) | **v21** Korean (KR) | v23 구조에 **최신 v21 한국어 정보**를 반영하고 v23 `phash` 유지 |
-| | `local_pt_BR.cfg` (포르투갈어) | v23 English (US) | v19 Portuguese (BR) | v23 구조에 v19 포르투갈어 값 적용 및 v23 `phash` 유지 |
-| | `local_zh_CN.cfg` (중국어) | v23 English (US) | v19 Chinese (CN) | v23 구조에 v19 중국어 값 적용 및 v23 `phash` 유지 |
+*   **[zzzzzz9125](https://github.com/zzzzzz9125)**
+    *   프로그램에 필요한 핵심 공식 언어 설정(`.cfg`) 파일을 제공해주셨습니다.
+        *   **Vegas Pro 20:** `local_zh_CN.cfg`
+        *   **Vegas Pro 21 ~ 23:** 모든 공식 `.cfg` 파일
 
 <br>
 
